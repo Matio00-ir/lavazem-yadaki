@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f6f7f8;
+  --color-bg-muted: #eef0f2;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+
+  /* Text */
+  --color-text: #14171c;
+  --color-text-muted: #5b6472;
+  --color-text-faint: #8a93a1;
+  --color-text-on-primary: #ffffff;
+
+  /* Borders */
+  --color-border: #e6e8eb;
+  --color-border-strong: #d3d7dc;
+
+  /* Brand — Automotive Red */
+  --color-primary: #b3121f;
+  --color-primary-dark: #8f0d18;
+  --color-primary-darker: #6e0a13;
+  --color-primary-light: #fdecec;
+  --color-primary-tint: #fff5f5;
+
+  /* Ink / Automotive charcoal (header, footer, badges) */
+  --color-ink: #14171c;
+  --color-ink-soft: #21262e;
+
+  /* Status */
+  --color-success: #1c8a53;
+  --color-success-light: #e7f6ee;
+  --color-warning: #b8720a;
+  --color-warning-light: #fdf1de;
+  --color-danger: #b3121f;
+
+  /* Rating */
+  --color-star: #f5a623;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  --shadow-card: 0 1px 2px rgba(20, 23, 28, 0.04), 0 8px 24px -12px rgba(20, 23, 28, 0.10);
+  --shadow-card-hover: 0 4px 10px rgba(20, 23, 28, 0.06), 0 20px 36px -16px rgba(20, 23, 28, 0.16);
+  --shadow-pop: 0 12px 32px -8px rgba(20, 23, 28, 0.22);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--color-bg);
+  --color-bg-subtle: var(--color-bg-subtle);
+  --color-bg-muted: var(--color-bg-muted);
+  --color-surface: var(--color-surface);
+
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-faint: var(--color-text-faint);
+  --color-text-on-primary: var(--color-text-on-primary);
+
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-darker: var(--color-primary-darker);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-tint: var(--color-primary-tint);
+
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+
+  --color-success: var(--color-success);
+  --color-success-light: var(--color-success-light);
+  --color-warning: var(--color-warning);
+  --color-warning-light: var(--color-warning-light);
+  --color-danger: var(--color-danger);
+  --color-star: var(--color-star);
+
+  --font-sans: var(--font-vazirmatn);
+
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in: fade-in 0.4s ease both;
+  --animate-scale-in: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-feature-settings: "ss01" 1;
+}
+
+/* Thin, quiet scrollbars for horizontal scrollers */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 999px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Persian digits look better tabular in prices */
+.tnum {
+  font-variant-numeric: tabular-nums;
 }

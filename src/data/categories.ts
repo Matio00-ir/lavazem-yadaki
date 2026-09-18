@@ -1,0 +1,88 @@
+import type { Category } from "./types";
+
+export const categories: Category[] = [
+  {
+    id: "cat-engine",
+    slug: "engine",
+    name: "موتور و قطعات موتور",
+    shortName: "موتور",
+    icon: "engine",
+    productCount: 412,
+    description: "قطعات اصلی و یدکی موتور خودرو",
+  },
+  {
+    id: "cat-brake",
+    slug: "brake",
+    name: "سیستم ترمز",
+    shortName: "ترمز",
+    icon: "brake-disc",
+    productCount: 268,
+    description: "لنت، دیسک و کاسه ترمز اورجینال",
+  },
+  {
+    id: "cat-suspension",
+    slug: "suspension",
+    name: "جلوبندی و تعلیق",
+    shortName: "جلوبندی",
+    icon: "suspension",
+    productCount: 195,
+    description: "طبق، سیبک، کمک فنر و بوش",
+  },
+  {
+    id: "cat-electrical",
+    slug: "electrical",
+    name: "برق و الکترونیک",
+    shortName: "برقی",
+    icon: "electrical",
+    productCount: 231,
+    description: "سنسورها، دینام و قطعات برقی",
+  },
+  {
+    id: "cat-filters",
+    slug: "filters",
+    name: "فیلترها",
+    shortName: "فیلتر",
+    icon: "oil-filter",
+    productCount: 154,
+    description: "فیلتر روغن، هوا، کابین و بنزین",
+  },
+  {
+    id: "cat-fluids",
+    slug: "fluids",
+    name: "روغن و سیالات",
+    shortName: "روغن",
+    icon: "oil",
+    productCount: 88,
+    description: "روغن موتور، ضدیخ و مایع ترمز",
+  },
+  {
+    id: "cat-body",
+    slug: "body",
+    name: "بدنه و تزئینات",
+    shortName: "بدنه",
+    icon: "wiper",
+    productCount: 176,
+    description: "قطعات بدنه، آینه و تزئینات",
+  },
+  {
+    id: "cat-cooling",
+    slug: "cooling",
+    name: "سیستم خنک‌کننده",
+    shortName: "خنک‌کننده",
+    icon: "radiator",
+    productCount: 97,
+    description: "رادیاتور، فن و ترموستات",
+  },
+  {
+    id: "cat-consumables",
+    slug: "consumables",
+    name: "لوازم مصرفی",
+    shortName: "مصرفی",
+    icon: "battery",
+    productCount: 143,
+    description: "باتری، تسمه، شمع و لوازم مصرفی",
+  },
+];
+
+export const getCategoryBySlug = (slug: string) =>
+  categories.find((c) => c.slug === slug);
